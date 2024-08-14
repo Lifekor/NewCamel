@@ -12,6 +12,22 @@ const runFrames = 37;
 const walkDuration = 1120; // 1.12 секунды
 const runDuration = 500; // 0.5 секунды
 
+// Предварительная загрузка изображений
+const walkImages = [];
+const runImages = [];
+
+for (let i = 0; i < walkFrames; i++) {
+    const img = new Image();
+    img.src = `textures/walk/camel_walk_${i.toString().padStart(4, '0')}.png`;
+    walkImages.push(img);
+}
+
+for (let i = 0; i < runFrames; i++) {
+    const img = new Image();
+    img.src = `textures/run/camel_run_${i.toString().padStart(4, '0')}.png`;
+    runImages.push(img);
+}
+
 // Форматирование номера кадра
 function formatFrameNumber(frameNumber) {
     return frameNumber.toString().padStart(4, '0');
